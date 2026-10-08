@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>أثبت العكس — نسخة مطوّرة</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="scene" class="scene" aria-label="لعبة عبور خط بارليف">
+      <img id="bgBase" class="bg base" src="assets/background_base.png" alt="خط بارليف" />
+      <img id="bgBreach" class="bg breach" src="assets/background_breach.png" alt="فتح الممر" />
+      <img id="bgFinal" class="bg final hidden" src="assets/final_landing.png" alt="إنزال عسكري مصري عند الغروب" />
+
+      <div class="sky-vignette"></div>
+      <div id="dustLayer" class="dust-layer"></div>
+      <div id="flashLayer" class="flash-layer"></div>
+      <div id="smokeLayer" class="smoke-layer hidden"></div>
+
+      <div id="impactZone" class="impact-zone" aria-label="منطقة استهداف الساتر"></div>
+
+      <div id="weaponLayer" class="weapon-layer hidden">
+        <img id="currentWeapon" class="current-weapon hidden" src="" alt="الأداة المختارة" />
+        <img id="sprayFx" class="spray-fx hidden" src="assets/water_spray.png" alt="رذاذ ماء" />
+        <img id="grenadeProjectile" class="grenade-projectile hidden" src="assets/grenade_object.png" alt="قنبلة" />
+      </div>
+
+      <img id="boatsLayer" class="boats-layer hidden" src="assets/boats.png" alt="زوارق عسكرية" />
+
+      <aside id="villainPanel" class="villain-panel hidden" aria-live="polite">
+        <img id="villainPortrait" class="villain-portrait" src="assets/villain_laugh_1.png" alt="رد فعل العدو" />
+        <div id="villainText" class="villain-text">هو ده آخرك؟</div>
+      </aside>
+
+      <section id="introCard" class="intro-card">
+        <p>أمامك حاجز قيل إنه لا يُقهر…</p>
+        <h1>أثبت العكس.</h1>
+        <button id="startBtn" class="primary-btn">ابدأ</button>
+      </section>
+
+      <div id="missionHud" class="mission-hud hidden">
+        <div class="mission-title">افتح ممرًا</div>
+        <div class="progress-shell"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+
+      <div id="statusBubble" class="status-bubble hidden"></div>
+
+      <nav id="toolDock" class="tool-dock hidden" aria-label="الأدوات التفاعلية">
+        <button class="tool-btn" data-tool="grenade" aria-label="قنبلة">
+          <img src="assets/tool_grenade.png" alt="قنبلة" />
+          <span>قنبلة</span>
+          <b class="cooldown-badge hidden" id="grenadeCooldown">30</b>
+        </button>
+        <button class="tool-btn" data-tool="water" aria-label="مدفع مياه">
+          <img src="assets/tool_water.png" alt="مدفع مياه" />
+          <span>مدفع مياه</span>
+        </button>
+        <button class="tool-btn" data-tool="gun" aria-label="مسدس">
+          <img src="assets/tool_gun.png" alt="مسدس" />
+          <span>مسدس</span>
+        </button>
+      </nav>
+
+      <button id="actionButton" class="action-button hidden">اضغط على الساتر</button>
+
+      <section id="endingOverlay" class="ending-overlay hidden">
+        <div class="ending-content">
+          <h2>تم فتح الممر</h2>
+          <p>الذكاء غلب القوة.</p>
+          <button id="replayBtn" class="primary-btn">إعادة اللعب</button>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer-note">HTML / CSS / JavaScript • assets-ready</footer>
+  </main>
+
+  <audio id="gunAudio" src="assets/audio/gunshot.wav" preload="auto"></audio>
+  <audio id="waterAudio" src="assets/audio/water.wav" preload="auto" loop></audio>
+  <audio id="throwAudio" src="assets/audio/throw.wav" preload="auto"></audio>
+  <audio id="explosionAudio" src="assets/audio/explosion.wav" preload="auto"></audio>
+  <audio id="laughAudio" src="assets/audio/laugh.wav" preload="auto"></audio>
+  <audio id="fearAudio" src="assets/audio/fear.wav" preload="auto"></audio>
+  <audio id="victoryAudio" src="assets/audio/victory.wav" preload="auto"></audio>
+
+  <script src="game.js"></script>
+</body>
+</html>
